@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #00ff00; /* Modal-like high contrast green */
+  --muted: #1a1a1a;
+  --border: #333333;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+.modal-card {
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.modal-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
