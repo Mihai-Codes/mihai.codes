@@ -2,12 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* Light theme (default) */
+:root,
+.light {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --accent: #059669; /* Emerald green - visible on light */
+  --muted: #f5f5f5;
+  --border: #e5e5e5;
+  --card-bg: #fafafa;
+  --text-secondary: #525252;
+}
+
+/* Dark theme (Modal.com inspired) */
+.dark {
   --background: #000000;
   --foreground: #ffffff;
-  --accent: #00ff00; /* Modal-like high contrast green */
+  --accent: #00ff00; /* High contrast green */
   --muted: #1a1a1a;
   --border: #333333;
+  --card-bg: #0a0a0a;
+  --text-secondary: #a3a3a3;
+}
+
+/* Prevent FOUC - default to dark before JS loads */
+html {
+  background-color: var(--background);
+  color-scheme: dark light;
 }
 
 body {
@@ -15,6 +36,7 @@ body {
   color: var(--foreground);
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -23,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .modal-card {
-  background-color: var(--muted);
+  background-color: var(--card-bg);
   border: 1px solid var(--border);
   transition: all 0.2s ease;
 }
@@ -31,4 +53,9 @@ h1, h2, h3, h4, h5, h6 {
 .modal-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }

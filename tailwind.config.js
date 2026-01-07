@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -9,6 +10,8 @@ module.exports = {
         accent: 'var(--accent)',
         muted: 'var(--muted)',
         border: 'var(--border)',
+        'card-bg': 'var(--card-bg)',
+        'text-secondary': 'var(--text-secondary)',
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
