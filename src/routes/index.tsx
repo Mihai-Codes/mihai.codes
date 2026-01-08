@@ -1,6 +1,8 @@
 import { component$ } from '@builder.io/qwik';
+import { Link } from '@builder.io/qwik-city';
 import { profile } from '../data/profile';
 import { ThemeToggle } from '../components/theme-toggle/theme-toggle';
+import { CredlyBadge } from '../components/credly-badge/credly-badge';
 
 export default component$(() => {
   return (
@@ -59,6 +61,35 @@ export default component$(() => {
               </div>
             ))}
           </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Credentials</h2>
+          <div class="flex flex-wrap gap-6 items-start">
+            <div class="modal-card p-4 rounded-lg">
+              <CredlyBadge badgeId="221c7861-b767-4de7-8c35-cdbed40cf16b" width={150} height={270} />
+            </div>
+          </div>
+          <p class="text-sm text-text-secondary mt-4 font-mono">
+            View all credentials on{' '}
+            <a
+              href="https://www.credly.com/users/mihai-alexandru-chindris"
+              target="_blank"
+              class="text-accent hover:underline"
+            >
+              Credly
+            </a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Blog</h2>
+          <p class="text-text-secondary mb-4">
+            Thoughts on engineering, cloud computing, and building in public.
+          </p>
+          <Link href="/blog" class="text-accent hover:underline font-mono text-sm">
+            Read the blog &rarr;
+          </Link>
         </section>
       </main>
 

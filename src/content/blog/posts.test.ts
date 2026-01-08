@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { posts, getPostBySlug, getAllPosts, type BlogPost } from './posts';
+import { posts, getPostBySlug, getAllPosts, getAllPostsIncludingDrafts, type BlogPost } from './posts';
 
 describe('blog posts module', () => {
   describe('posts array', () => {
@@ -66,9 +66,17 @@ describe('blog posts module', () => {
   });
 
   describe('getAllPosts', () => {
-    it('returns all posts', () => {
+    it('returns only non-draft posts', () => {
       const allPosts = getAllPosts();
-      expect(allPosts.length).toBe(posts.length);
+      const nonDraftPosts = posts.filter((post) => !post.draft);
+      expect(allPosts.length).toBe(nonDraftPosts.length);
+    });
+
+    it('does not include draft posts', () => {
+      const allPosts = getAllPosts();
+      allPosts.forEach((post) => {
+        expect(post.draft).not.toBe(true);
+      });
     });
 
     it('returns posts sorted by date descending (newest first)', () => {
@@ -88,6 +96,22 @@ describe('blog posts module', () => {
       
       expect(posts.length).toBe(originalLength);
       expect(posts[0].slug).toBe(originalFirstSlug);
+    });
+  });
+
+  describe('getAllPostsIncludingDrafts', () => {
+    it('returns all posts including drafts', () => {
+      const allPosts = getAllPostsIncludingDrafts();
+      expect(allPosts.length).toBe(posts.length);
+    });
+
+    it('returns posts sorted by date descending (newest first)', () => {
+      const allPosts = getAllPostsIncludingDrafts();
+      for (let i = 0; i < allPosts.length - 1; i++) {
+        const currentDate = new Date(allPosts[i].date).getTime();
+        const nextDate = new Date(allPosts[i + 1].date).getTime();
+        expect(currentDate).toBeGreaterThanOrEqual(nextDate);
+      }
     });
   });
 
