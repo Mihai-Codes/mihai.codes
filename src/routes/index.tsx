@@ -4,6 +4,7 @@ import { profile } from '../data/profile';
 import { ThemeToggle } from '../components/theme-toggle/theme-toggle';
 import { CredlyBadge } from '../components/credly-badge/credly-badge';
 import { LinkedInBadge } from '../components/linkedin-badge/linkedin-badge';
+import { GitHubWidget } from '../components/github-widget/github-widget';
 
 export default component$(() => {
   return (
@@ -17,14 +18,9 @@ export default component$(() => {
         <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tighter">
           {profile.name}
         </h1>
-        <p class="text-xl text-text-secondary font-mono mb-6">
+        <p class="text-xl text-text-secondary font-mono">
           {profile.tagline}
         </p>
-        <div class="flex gap-4 text-sm font-mono text-accent">
-          <a href={profile.socials.github} target="_blank" class="hover:underline">GitHub</a>
-          <a href={profile.socials.linkedin} target="_blank" class="hover:underline">LinkedIn</a>
-          <a href={`mailto:${profile.socials.email}`} class="hover:underline">Email</a>
-        </div>
       </header>
 
       <main class="space-y-16">
@@ -95,8 +91,24 @@ export default component$(() => {
 
         <section>
           <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Connect</h2>
-          <div class="flex flex-wrap gap-6 items-center">
-            <LinkedInBadge profileId="mihai-chindris" size="medium" />
+          <div class="flex flex-wrap gap-8 items-start">
+            <div class="modal-card p-4 rounded-lg">
+              <GitHubWidget username="chindris-mihai-alexandru" />
+            </div>
+            <div class="modal-card p-4 rounded-lg">
+              <LinkedInBadge profileId="mihai-chindris" size="medium" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <p class="text-text-secondary font-mono text-sm">
+              Or reach out directly:{' '}
+              <a
+                href={`mailto:${profile.socials.email}`}
+                class="text-accent hover:underline"
+              >
+                {profile.socials.email}
+              </a>
+            </p>
           </div>
         </section>
       </main>
