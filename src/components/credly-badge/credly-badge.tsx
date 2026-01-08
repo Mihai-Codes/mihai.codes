@@ -19,10 +19,10 @@ export const CredlyBadge = component$<CredlyBadgeProps>(
         document.body.appendChild(script);
       } else {
         // If script already exists, trigger re-render of badges
-        // @ts-expect-error Credly global
-        if (window.CredlyBadge) {
-          // @ts-expect-error Credly global
-          window.CredlyBadge.init();
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+        if ((window as any).CredlyBadge) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-explicit-any
+          (window as any).CredlyBadge.init();
         }
       }
     });

@@ -251,9 +251,9 @@ MODELS=(
 )
 
 for model in "\${MODELS[@]}"; do
-  echo -n "Testing \$model... "
+  echo -n "Testing $model... "
   if aws bedrock-runtime invoke-model \\
-    --model-id "\$model" \\
+    --model-id "$model" \\
     --body fileb:///tmp/test.json \\
     --content-type application/json \\
     /tmp/response.json 2>/dev/null; then

@@ -3,6 +3,7 @@ import { Link } from '@builder.io/qwik-city';
 import { profile } from '../data/profile';
 import { ThemeToggle } from '../components/theme-toggle/theme-toggle';
 import { CredlyBadge } from '../components/credly-badge/credly-badge';
+import { LinkedInBadge } from '../components/linkedin-badge/linkedin-badge';
 
 export default component$(() => {
   return (
@@ -90,6 +91,13 @@ export default component$(() => {
           <Link href="/blog" class="text-accent hover:underline font-mono text-sm">
             Read the blog &rarr;
           </Link>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Connect</h2>
+          <div class="flex flex-wrap gap-6 items-center">
+            <LinkedInBadge profileId="mihai-chindris" size="medium" />
+          </div>
         </section>
       </main>
 
