@@ -37,17 +37,30 @@ const themeScript = `
     if (btn) btn.title = 'Current: ' + t + '. Click to change.';
   };
   
-  // Attach click handler after DOM ready
-  document.addEventListener('DOMContentLoaded', function() {
+  // Attach click handler - use capturing phase to run before Qwik
+  function attachHandler() {
     var btn = document.querySelector('[data-theme-toggle]');
-    if (btn) {
+    if (btn && !btn.__themeHandlerAttached) {
+      btn.__themeHandlerAttached = true;
       btn.title = 'Current: ' + window.__theme + '. Click to change.';
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
         var cycle = { dark: 'light', light: 'system', system: 'dark' };
         window.__setTheme(cycle[window.__theme]);
-      });
+      }, true); // capture phase
     }
-  });
+  }
+  
+  // Try multiple times to ensure button is found
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', attachHandler);
+  } else {
+    attachHandler();
+  }
+  // Also try after a short delay as backup
+  setTimeout(attachHandler, 100);
+  setTimeout(attachHandler, 500);
 })();
 `;
 
