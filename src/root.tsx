@@ -10,17 +10,13 @@ const themeScript = `
 (function() {
   var STORAGE_KEY = 'mihai-codes-theme';
   var stored = localStorage.getItem(STORAGE_KEY);
-  var theme = stored || 'system';
+  // Use stored value, or detect system preference on first visit
+  var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   
   function applyTheme(t) {
     var root = document.documentElement;
     root.classList.remove('light', 'dark');
-    if (t === 'system') {
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.classList.add(prefersDark ? 'dark' : 'light');
-    } else {
-      root.classList.add(t);
-    }
+    root.classList.add(t);
   }
   
   // Apply theme immediately to prevent FOUC
@@ -34,7 +30,7 @@ const themeScript = `
     applyTheme(t);
     // Update button title
     var btn = document.querySelector('[data-theme-toggle]');
-    if (btn) btn.title = 'Current: ' + t + '. Click to change.';
+    if (btn) btn.title = 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode';
   };
   
   // Attach click handler - use capturing phase to run before Qwik
@@ -42,12 +38,12 @@ const themeScript = `
     var btn = document.querySelector('[data-theme-toggle]');
     if (btn && !btn.__themeHandlerAttached) {
       btn.__themeHandlerAttached = true;
-      btn.title = 'Current: ' + window.__theme + '. Click to change.';
+      btn.title = 'Switch to ' + (window.__theme === 'dark' ? 'light' : 'dark') + ' mode';
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        var cycle = { dark: 'light', light: 'system', system: 'dark' };
-        window.__setTheme(cycle[window.__theme]);
+        // Simple 2-way toggle: dark <-> light
+        window.__setTheme(window.__theme === 'dark' ? 'light' : 'dark');
       }, true); // capture phase
     }
   }

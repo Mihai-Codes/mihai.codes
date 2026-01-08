@@ -8,22 +8,26 @@ import {
   type Signal,
 } from '@builder.io/qwik';
 
-export type Theme = 'light' | 'dark' | 'system';
+export type Theme = 'light' | 'dark';
 
 export const ThemeContext = createContextId<Signal<Theme>>('theme-context');
 
 const STORAGE_KEY = 'mihai-codes-theme';
 
 export const ThemeProvider = component$(() => {
-  const theme = useSignal<Theme>('system');
+  const theme = useSignal<Theme>('dark');
 
   // Read theme from localStorage on mount (client-side only)
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(
     () => {
       const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (stored && ['light', 'dark', 'system'].includes(stored)) {
+      if (stored && ['light', 'dark'].includes(stored)) {
         theme.value = stored;
+      } else {
+        // Default to system preference on first visit
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        theme.value = prefersDark ? 'dark' : 'light';
       }
       applyTheme(theme.value);
     },
@@ -46,11 +50,5 @@ export const ThemeProvider = component$(() => {
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.remove('light', 'dark');
-
-  if (theme === 'system') {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    root.classList.add(prefersDark ? 'dark' : 'light');
-  } else {
-    root.classList.add(theme);
-  }
+  root.classList.add(theme);
 }

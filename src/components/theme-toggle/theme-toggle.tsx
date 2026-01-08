@@ -7,12 +7,11 @@ export const ThemeToggle = component$(() => {
   return (
     <button
       onClick$={() => {
-        // Cycle: dark -> light -> system -> dark
-        const cycle = { dark: 'light', light: 'system', system: 'dark' } as const;
-        theme.value = cycle[theme.value];
+        // Simple toggle: dark <-> light
+        theme.value = theme.value === 'dark' ? 'light' : 'dark';
       }}
       class="p-2 rounded-lg border border-border hover:border-accent transition-colors"
-      title={`Current: ${theme.value}. Click to change.`}
+      title={`Switch to ${theme.value === 'dark' ? 'light' : 'dark'} mode`}
       aria-label="Toggle theme"
       data-theme-toggle
     >
