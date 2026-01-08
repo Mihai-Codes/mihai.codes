@@ -29,7 +29,7 @@ Welcome to **mihai.codes** - my personal corner of the internet.
 I've always believed that the best way to learn is to build in public. This site is my experiment in:
 
 1. **Qwik** - A resumable framework that ships near-zero JavaScript
-2. **ElectricSQL** - Local-first sync for real-time features
+2. **Tailwind CSS** - Utility-first styling with dark/light theme support
 3. **Cloudflare Pages** - Edge deployment for global performance
 
 ## What to Expect
@@ -46,9 +46,9 @@ This site is intentionally over-engineered for learning purposes:
 
 \`\`\`
 Frontend:  Qwik + Tailwind CSS
-Database:  Neon Postgres + ElectricSQL
+Testing:   Vitest + Codecov
 Hosting:   Cloudflare Pages
-AI:        AG-UI Protocol (coming soon)
+CI/CD:     GitHub Actions
 \`\`\`
 
 ## Let's Connect

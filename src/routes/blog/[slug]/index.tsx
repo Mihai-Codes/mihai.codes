@@ -126,7 +126,7 @@ export default component$(() => {
       </article>
 
       <footer class="mt-24 pt-8 border-t border-border text-center text-text-secondary text-sm font-mono">
-        <p>Built with Qwik, ElectricSQL & AG-UI</p>
+        <p>Built with Qwik & Tailwind CSS</p>
         <p class="mt-2">&copy; 2026 Mihai Chindriș</p>
       </footer>
     </div>
