@@ -41,12 +41,12 @@ jobs:
           ORIGIN: https://chindris-mihai-alexandru.github.io
 
       - name: Add .nojekyll file
-        run: touch dist/mihai.codes/.nojekyll
+        run: touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/mihai.codes
+          path: ./dist
 
   deploy:
     environment:
