@@ -5,28 +5,26 @@ import { component$ } from '@builder.io/qwik';
  * 
  * This component renders a button that toggles between light and dark themes.
  * 
- * IMPORTANT: For SSG compatibility, we render raw HTML that includes:
- * 1. The button element with an ID
- * 2. An inline script that attaches the click handler immediately
+ * IMPORTANT: For SSG compatibility, this uses event delegation:
+ * - The button has id="theme-toggle-btn"
+ * - The click handler is attached via document.addEventListener in root.tsx's themeScript
+ * - This way, no inline script is needed (which may not execute in SSG HTML)
  * 
- * This approach works because the script runs synchronously right after
- * the button is parsed into the DOM, before the page finishes loading.
- * 
- * The window.__toggleTheme function is defined in root.tsx's themeScript.
+ * The window.__toggleTheme function and event listener are defined in root.tsx.
  */
 export const ThemeToggle = component$(() => {
-  // We use dangerouslySetInnerHTML to render raw HTML with a button and inline script
-  // The script immediately attaches the click handler after the button exists
+  // We use dangerouslySetInnerHTML to render raw HTML
+  // The click handler is attached via event delegation in root.tsx (head script)
   const buttonHtml = `
     <button
       id="theme-toggle-btn"
-      class="p-2 rounded-lg border border-border hover:border-accent transition-colors"
+      class="p-2 rounded-lg border border-border hover:border-accent transition-colors cursor-pointer"
       title="Toggle theme"
       aria-label="Toggle theme"
     >
       <!-- Sun icon - shown in dark mode -->
       <svg
-        class="w-5 h-5 hidden dark:block text-accent"
+        class="w-5 h-5 hidden dark:block text-accent pointer-events-none"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -40,7 +38,7 @@ export const ThemeToggle = component$(() => {
       </svg>
       <!-- Moon icon - shown in light mode -->
       <svg
-        class="w-5 h-5 block dark:hidden text-accent"
+        class="w-5 h-5 block dark:hidden text-accent pointer-events-none"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -53,14 +51,6 @@ export const ThemeToggle = component$(() => {
         />
       </svg>
     </button>
-    <script>
-      (function() {
-        var btn = document.getElementById('theme-toggle-btn');
-        if (btn && window.__toggleTheme) {
-          btn.onclick = window.__toggleTheme;
-        }
-      })();
-    </script>
   `;
 
   return <div dangerouslySetInnerHTML={buttonHtml} />;
