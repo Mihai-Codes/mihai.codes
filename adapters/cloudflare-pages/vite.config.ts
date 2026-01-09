@@ -14,7 +14,7 @@ export default extendConfig(baseConfig, () => {
       cloudflarePagesAdapter({
         ssg: {
           include: ['/*'],
-          exclude: ['/sitemap.xml', '/blog/*'],
+          exclude: ['/sitemap.xml', '/rss.xml', '/blog/*'],
           origin: 'https://mihai.codes',
           sitemapOutFile: null, // Disable auto-generated sitemap - we have a dynamic one
         },
