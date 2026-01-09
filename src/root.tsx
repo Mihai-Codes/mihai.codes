@@ -42,10 +42,14 @@ export default component$(() => {
         <ThemeProvider>
           <RouterOutlet />
         </ThemeProvider>
-        {/* Credly embed script - loads after body content, auto-finds badge elements */}
+        {/* Third-party embed scripts - load after body content, auto-find badge elements */}
         <script
           async
           src="https://cdn.credly.com/assets/utilities/embed.js"
+        />
+        <script
+          async
+          src="https://platform.linkedin.com/badges/js/profile.js"
         />
       </body>
     </QwikCityProvider>

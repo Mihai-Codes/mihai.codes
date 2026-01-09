@@ -1,4 +1,4 @@
-import { component$, useContext, useVisibleTask$ } from '@builder.io/qwik';
+import { component$, useContext } from '@builder.io/qwik';
 import { ThemeContext } from '../../context/theme';
 
 type BadgeSize = 'small' | 'medium' | 'large';
@@ -16,25 +16,18 @@ const BADGE_SIZES: Record<BadgeSize, { width: string; height: string }> = {
   large: { width: '200', height: '71' },
 };
 
+/**
+ * LinkedIn Profile Badge component.
+ * 
+ * The LinkedIn embed script is loaded in root.tsx and auto-discovers
+ * elements with the LI-profile-badge class and data attributes.
+ * This approach works reliably with SSG since the script runs after
+ * the page loads, finding the badge elements in the static HTML.
+ */
 export const LinkedInBadge = component$<LinkedInBadgeProps>(
   ({ profileId, size = 'medium' }) => {
     const theme = useContext(ThemeContext);
     const dimensions = BADGE_SIZES[size];
-
-    // Load LinkedIn badge script when component becomes visible
-    // eslint-disable-next-line qwik/no-use-visible-task
-    useVisibleTask$(({ track }) => {
-      track(() => theme.value);
-      
-      // Check if script already loaded
-      if (!document.querySelector('script[src*="platform.linkedin.com/badges"]')) {
-        const script = document.createElement('script');
-        script.src = 'https://platform.linkedin.com/badges/js/profile.js';
-        script.async = true;
-        script.defer = true;
-        document.body.appendChild(script);
-      }
-    });
 
     return (
       <div
