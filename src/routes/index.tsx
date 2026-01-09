@@ -38,9 +38,9 @@ export default component$(() => {
           {profile.name}
         </h1>
         <p class="text-lg md:text-xl text-text-secondary font-mono">
-          Aspiring Product Manager |{' '}
+          Aspiring PM |{' '}
           <a 
-            href="https://quantic.edu" 
+            href="https://quantic.edu/ms-software-engineering/" 
             target="_blank" 
             rel="noopener noreferrer"
             class="text-accent hover:underline"
