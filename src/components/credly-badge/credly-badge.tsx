@@ -28,8 +28,8 @@ export const CredlyBadge = component$<CredlyBadgeProps>(({ badge }) => {
   if (!badge) {
     return (
       <div class="p-3 rounded-lg border border-border bg-bg text-text-secondary">
-        <div class="w-20 h-20 flex items-center justify-center">
-          <svg class="w-10 h-10 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="w-[110px] h-[110px] flex items-center justify-center">
+          <svg class="w-12 h-12 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
           </svg>
         </div>
@@ -49,9 +49,9 @@ export const CredlyBadge = component$<CredlyBadgeProps>(({ badge }) => {
       <img
         src={badge.imageUrl}
         alt={badge.title}
-        width={80}
-        height={80}
-        class="w-20 h-20"
+        width={110}
+        height={110}
+        class="w-[110px] h-[110px]"
         loading="lazy"
       />
     </a>
@@ -98,10 +98,14 @@ export async function fetchCredlyBadge(badgeId: string): Promise<CredlyBadgeData
       issuerName = issuedByMatch[2].trim();
     }
     
-    // Use the OG image URL directly - it's the linkedin_thumb_blob format
-    // which returns a valid 200 OK response. Don't try to construct a different
-    // URL as the /size/340x340/ format returns 302 redirects that may not work.
-    const imageUrl = ogImage;
+    // Convert OG image URL to higher resolution 340x340 version
+    // OG image format: https://images.credly.com/images/{image-id}/linkedin_thumb_blob
+    // High-res format: https://images.credly.com/size/340x340/images/{image-id}/blob
+    let imageUrl = ogImage;
+    const imageIdMatch = ogImage.match(/\/images\/([a-f0-9-]+)\//);
+    if (imageIdMatch) {
+      imageUrl = `https://images.credly.com/size/340x340/images/${imageIdMatch[1]}/blob`;
+    }
     
     return {
       id: badgeId,
