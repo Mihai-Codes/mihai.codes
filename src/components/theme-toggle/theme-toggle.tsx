@@ -4,21 +4,26 @@ import { component$ } from '@builder.io/qwik';
  * Theme Toggle Button
  * 
  * This component renders a button that toggles between light and dark themes.
- * The actual click handling is done by native JavaScript in root.tsx (themeScript)
- * which attaches an event listener to [data-theme-toggle] on DOMContentLoaded.
  * 
- * This approach works reliably on SSG pages where Qwik's onClick$ handlers
- * may not fire due to incomplete hydration.
+ * IMPORTANT: For SSG compatibility, we render the button with raw HTML that
+ * includes an inline onclick handler. This is necessary because:
+ * 1. On SSG pages, Qwik's onClick$ handlers require hydration to work
+ * 2. DOMContentLoaded fires before the button exists on SSG pages
+ * 3. Inline onclick in raw HTML works immediately without JavaScript framework
+ * 
+ * The window.__toggleTheme function is defined in root.tsx's themeScript.
  */
 export const ThemeToggle = component$(() => {
-  return (
+  // We use dangerouslySetInnerHTML to render a button with native onclick
+  // This bypasses Qwik's JSX type checking which doesn't allow onclick
+  const buttonHtml = `
     <button
+      onclick="window.__toggleTheme && window.__toggleTheme()"
       class="p-2 rounded-lg border border-border hover:border-accent transition-colors"
       title="Toggle theme"
       aria-label="Toggle theme"
-      data-theme-toggle
     >
-      {/* Sun icon - shown in dark mode */}
+      <!-- Sun icon - shown in dark mode -->
       <svg
         class="w-5 h-5 hidden dark:block text-accent"
         fill="none"
@@ -32,7 +37,7 @@ export const ThemeToggle = component$(() => {
           d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
         />
       </svg>
-      {/* Moon icon - shown in light mode */}
+      <!-- Moon icon - shown in light mode -->
       <svg
         class="w-5 h-5 block dark:hidden text-accent"
         fill="none"
@@ -47,5 +52,7 @@ export const ThemeToggle = component$(() => {
         />
       </svg>
     </button>
-  );
+  `;
+
+  return <div dangerouslySetInnerHTML={buttonHtml} />;
 });

@@ -6,7 +6,8 @@ import { ThemeProvider } from './context/theme';
 import './global.css';
 
 // Inline script for theme handling - works without Qwik hydration
-// This is the ONLY theme code that runs - handles both FOUC prevention AND toggle clicks
+// This runs in <head> BEFORE body renders, preventing FOUC
+// The toggle button uses inline onclick="window.__toggleTheme()" to call this
 const themeScript = `
 (function() {
   var STORAGE_KEY = 'mihai-codes-theme';
@@ -17,10 +18,10 @@ const themeScript = `
   document.documentElement.classList.remove('light', 'dark');
   document.documentElement.classList.add(theme);
   
-  // Store current theme
+  // Store current theme globally
   window.__theme = theme;
   
-  // Global theme setter
+  // Global theme setter - updates class, localStorage, and window.__theme
   window.__setTheme = function(t) {
     window.__theme = t;
     localStorage.setItem(STORAGE_KEY, t);
@@ -28,20 +29,12 @@ const themeScript = `
     document.documentElement.classList.add(t);
   };
   
-  // Toggle function for the button
+  // Toggle function - called by inline onclick on the theme toggle button
+  // No DOMContentLoaded needed since button uses inline onclick attribute
   window.__toggleTheme = function() {
     var newTheme = window.__theme === 'dark' ? 'light' : 'dark';
     window.__setTheme(newTheme);
   };
-  
-  // Attach click handler to theme toggle button after DOM is ready
-  // This works on SSG pages without Qwik hydration
-  document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.querySelector('[data-theme-toggle]');
-    if (btn) {
-      btn.addEventListener('click', window.__toggleTheme);
-    }
-  });
 })();
 `;
 

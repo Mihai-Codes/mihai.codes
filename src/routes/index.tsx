@@ -2,7 +2,7 @@ import { component$ } from '@builder.io/qwik';
 import { Link, routeLoader$ } from '@builder.io/qwik-city';
 import { profile } from '../data/profile';
 import { ThemeToggle } from '../components/theme-toggle/theme-toggle';
-import { CredlyBadge } from '../components/credly-badge/credly-badge';
+import { CredlyBadge, fetchCredlyBadge, type CredlyBadgeData } from '../components/credly-badge/credly-badge';
 import { LinkedInWidget } from '../components/linkedin-badge/linkedin-badge';
 import { GitHubWidget, type GitHubUser } from '../components/github-widget/github-widget';
 
@@ -21,8 +21,15 @@ export const useGitHubData = routeLoader$<GitHubUser | null>(async () => {
   }
 });
 
+// Fetch Credly badge data at build time (SSG) or request time (SSR)
+export const useCredlyBadge = routeLoader$<CredlyBadgeData | null>(async () => {
+  // AWS Academy Graduate - Cloud Foundations badge
+  return await fetchCredlyBadge('221c7861-b767-4de7-8c35-cdbed40cf16b');
+});
+
 export default component$(() => {
   const githubData = useGitHubData();
+  const credlyBadge = useCredlyBadge();
   return (
     <div class="min-h-screen p-8 md:p-16 max-w-4xl mx-auto">
       {/* Theme toggle - fixed position */}
@@ -80,7 +87,7 @@ export default component$(() => {
           <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Credentials</h2>
           <div class="flex flex-wrap gap-6 items-start">
             <div class="modal-card p-4 rounded-lg">
-              <CredlyBadge badgeId="221c7861-b767-4de7-8c35-cdbed40cf16b" width={150} height={270} />
+              <CredlyBadge badge={credlyBadge.value} />
             </div>
           </div>
           <p class="text-sm text-text-secondary mt-4 font-mono">
