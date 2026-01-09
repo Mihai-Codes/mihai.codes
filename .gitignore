@@ -6,6 +6,7 @@ dist/
 server/
 .vercel/
 .netlify/
+.wrangler/
 
 # System files
 .DS_Store
