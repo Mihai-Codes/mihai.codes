@@ -5,20 +5,21 @@ import { component$ } from '@builder.io/qwik';
  * 
  * This component renders a button that toggles between light and dark themes.
  * 
- * IMPORTANT: For SSG compatibility, we render the button with raw HTML that
- * includes an inline onclick handler. This is necessary because:
- * 1. On SSG pages, Qwik's onClick$ handlers require hydration to work
- * 2. DOMContentLoaded fires before the button exists on SSG pages
- * 3. Inline onclick in raw HTML works immediately without JavaScript framework
+ * IMPORTANT: For SSG compatibility, we render raw HTML that includes:
+ * 1. The button element with an ID
+ * 2. An inline script that attaches the click handler immediately
+ * 
+ * This approach works because the script runs synchronously right after
+ * the button is parsed into the DOM, before the page finishes loading.
  * 
  * The window.__toggleTheme function is defined in root.tsx's themeScript.
  */
 export const ThemeToggle = component$(() => {
-  // We use dangerouslySetInnerHTML to render a button with native onclick
-  // This bypasses Qwik's JSX type checking which doesn't allow onclick
+  // We use dangerouslySetInnerHTML to render raw HTML with a button and inline script
+  // The script immediately attaches the click handler after the button exists
   const buttonHtml = `
     <button
-      onclick="window.__toggleTheme && window.__toggleTheme()"
+      id="theme-toggle-btn"
       class="p-2 rounded-lg border border-border hover:border-accent transition-colors"
       title="Toggle theme"
       aria-label="Toggle theme"
@@ -52,6 +53,14 @@ export const ThemeToggle = component$(() => {
         />
       </svg>
     </button>
+    <script>
+      (function() {
+        var btn = document.getElementById('theme-toggle-btn');
+        if (btn && window.__toggleTheme) {
+          btn.onclick = window.__toggleTheme;
+        }
+      })();
+    </script>
   `;
 
   return <div dangerouslySetInnerHTML={buttonHtml} />;

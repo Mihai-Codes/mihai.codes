@@ -107,17 +107,10 @@ export async function fetchCredlyBadge(badgeId: string): Promise<CredlyBadgeData
       issuerName = issuedByMatch[2].trim();
     }
     
-    // Get a larger image by modifying the URL
-    // Credly uses: linkedin_thumb_blob, twitter_thumb_201604_blob, etc.
-    // We can use size/340x340 format for a good quality image
-    let imageUrl = ogImage;
-    if (imageUrl.includes('linkedin_thumb_blob')) {
-      // Try to get a cleaner URL by extracting the image ID
-      const imageIdMatch = imageUrl.match(/images\/([^/]+)\//);
-      if (imageIdMatch) {
-        imageUrl = `https://images.credly.com/size/340x340/images/${imageIdMatch[1]}/image.png`;
-      }
-    }
+    // Use the OG image URL directly - it's the linkedin_thumb_blob format
+    // which returns a valid 200 OK response. Don't try to construct a different
+    // URL as the /size/340x340/ format returns 302 redirects that may not work.
+    const imageUrl = ogImage;
     
     return {
       id: badgeId,
