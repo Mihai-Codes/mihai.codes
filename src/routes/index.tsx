@@ -136,7 +136,39 @@ export const head = {
   meta: [
     {
       name: 'description',
-      content: 'Personal site of Mihai Chindriș',
+      content: 'Personal site of Mihai Chindriș - Software Engineering student, aspiring Product Manager, and builder.',
+    },
+    {
+      property: 'og:title',
+      content: 'Mihai Chindriș | Software Engineer & Aspiring PM',
+    },
+    {
+      property: 'og:description',
+      content: 'Personal site of Mihai Chindriș - Software Engineering student, aspiring Product Manager, and builder.',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:url',
+      content: 'https://mihai.codes',
+    },
+    {
+      property: 'og:site_name',
+      content: 'mihai.codes',
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:title',
+      content: 'Mihai Chindriș | Software Engineer & Aspiring PM',
+    },
+    {
+      name: 'twitter:description',
+      content: 'Personal site of Mihai Chindriș - Software Engineering student, aspiring Product Manager, and builder.',
     },
   ],
 };

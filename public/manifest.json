@@ -1,0 +1,16 @@
+{
+  "name": "mihai.codes",
+  "short_name": "mihai.codes",
+  "description": "Personal site of Mihai Chindris - Software Engineering student, aspiring Product Manager, and builder.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ff00",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -96,5 +96,37 @@ export const head = {
       name: 'description',
       content: 'Thoughts on engineering, product, and building in public.',
     },
+    {
+      property: 'og:title',
+      content: 'Blog | Mihai Chindriș',
+    },
+    {
+      property: 'og:description',
+      content: 'Thoughts on engineering, product, and building in public.',
+    },
+    {
+      property: 'og:type',
+      content: 'website',
+    },
+    {
+      property: 'og:url',
+      content: 'https://mihai.codes/blog',
+    },
+    {
+      property: 'og:site_name',
+      content: 'mihai.codes',
+    },
+    {
+      name: 'twitter:card',
+      content: 'summary',
+    },
+    {
+      name: 'twitter:title',
+      content: 'Blog | Mihai Chindriș',
+    },
+    {
+      name: 'twitter:description',
+      content: 'Thoughts on engineering, product, and building in public.',
+    },
   ],
 };
