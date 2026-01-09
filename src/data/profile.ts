@@ -1,6 +1,6 @@
 export const profile = {
   name: "Mihai Chindriș",
-  tagline: "Aspiring Associate Product Manager | Software Engineering Student",
+  tagline: "Aspiring Product Manager | SWE Student | Open-Source Contributor",
   location: "Maramureș, Romania",
   summary: "I cut my teeth in IT, starting in tech support and software testing at my previous company, and now I am eager to transition into product-related roles. I put passion in combining technical expertise with a customer-focused approach, and I consider myself great at making data-driven decisions and working well with different teams. Currently pursuing a Master's in Software Engineering at Quantic School of Business & Technology, where I am honing my skills in product strategy, market analysis, and user experience design.",
   voice_id: "elevenlabs_voice_id_placeholder",
@@ -90,7 +90,7 @@ export const profile = {
       role: "Full-Stack Restaurant Web Application",
       date: "Sep 2025",
       description: "Full-stack fine dining restaurant web app. Intelligent reservation engine with dynamic table allotment.",
-      url: "https://chindris-mihai-alexandru.github.io/cafe-fausse/"
+      url: "https://github.com/chindris-mihai-alexandru/cafe-fausse"
     },
     {
       name: "Lily's Florist Shop",

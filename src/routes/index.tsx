@@ -37,8 +37,25 @@ export default component$(() => {
         <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tighter">
           {profile.name}
         </h1>
-        <p class="text-xl text-text-secondary font-mono">
-          {profile.tagline}
+        <p class="text-lg md:text-xl text-text-secondary font-mono">
+          Aspiring Product Manager |{' '}
+          <a 
+            href="https://quantic.edu" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-accent hover:underline"
+          >
+            SWE Student @Quantic
+          </a>
+          {' '}|{' '}
+          <a 
+            href={profile.socials.github}
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="text-accent hover:underline"
+          >
+            Open-Source Contributor
+          </a>
         </p>
       </header>
 
@@ -97,7 +114,7 @@ export default component$(() => {
 
         <section>
           <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Credentials</h2>
-          <div class="flex flex-wrap gap-6 items-start">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center sm:justify-items-start">
             <div class="modal-card p-4 rounded-lg">
               <CredlyBadge badge={credlyBadge.value} />
             </div>
@@ -126,7 +143,7 @@ export default component$(() => {
 
         <section>
           <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Connect</h2>
-          <div class="flex flex-wrap gap-8 items-start">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center sm:justify-items-start">
             <div class="modal-card p-4 rounded-lg">
               <GitHubWidget username="chindris-mihai-alexandru" userData={githubData.value} />
             </div>
