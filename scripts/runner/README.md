@@ -105,6 +105,40 @@ For the latest, see: [GitHub Actions pricing update](https://resources.github.co
 - Mitigation: Require approval for fork PRs, or use cloud runners for public repos
 - Runner has full machine access - don't store secrets locally
 
+## After macOS Reinstall
+
+The runner lives in `/Users/mihai/` which gets wiped on reinstall. **This is expected.**
+
+### What survives (on external volume):
+- ✅ This install script (`/Volumes/990Pro2TB/MyProjects/mihai-codes/scripts/runner/`)
+- ✅ All your project files
+- ✅ Your workflows in `.github/workflows/`
+
+### What you need to do after reinstall:
+
+```bash
+# 1. Run the installer (takes ~2 minutes)
+cd /Volumes/990Pro2TB/MyProjects/mihai-codes/scripts/runner
+./install.sh
+
+# 2. Get a NEW token from GitHub:
+#    https://github.com/organizations/mihai-codes/settings/actions/runners
+#    → Click "New self-hosted runner" → Copy token
+
+# 3. Paste token when prompted → Done!
+```
+
+The old runner will show as "Offline" in GitHub settings. You can delete it after the new one is registered.
+
+### Why not store the runner on the external volume?
+
+- The runner runs as a **launchd service** tied to your macOS user account
+- Credentials (`.credentials`, `.runner`) are specific to your user
+- After reinstall, you'd need to re-authenticate anyway (tokens expire)
+- The **install script** is what matters — and that's already on your external volume
+
+---
+
 ## Troubleshooting
 
 ### Runner not picking up jobs
