@@ -40,7 +40,7 @@ export default component$(() => {
             <p class="text-text-secondary font-mono">No posts yet. Check back soon!</p>
           ) : (
             posts.value.map((post) => (
-              <article key={post.slug} class="modal-card p-6 rounded-lg group">
+              <article key={post.slug} class="modal-card card-border-reveal p-6 rounded-lg group">
                 <Link href={`/blog/${post.slug}`} class="block">
                   <div class="flex justify-between items-start mb-2">
                     <h2 class="text-xl font-bold group-hover:text-accent transition-colors">

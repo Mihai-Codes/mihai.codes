@@ -55,6 +55,28 @@ export default {
           '0%': { filter: 'hue-rotate(0deg)' },
           '100%': { filter: 'hue-rotate(-30deg)' },
         },
+        // Text glow - subtle pulsing glow effect for name (cnewton.org inspired)
+        'text-glow': {
+          '0%, 100%': { 
+            filter: 'drop-shadow(0 0 0 transparent)',
+            opacity: '1',
+          },
+          '50%': { 
+            filter: 'drop-shadow(0 0 12px var(--accent))',
+            opacity: '0.95',
+          },
+        },
+        // Gradient shift - animated background position for gradient text
+        'gradient-shift': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        // Border reveal - scaleX animation for card borders on hover (cnewton.org inspired)
+        'border-reveal': {
+          '0%': { transform: 'scaleX(0)' },
+          '100%': { transform: 'scaleX(1)' },
+        },
       },
       animation: {
         // Default values - will be refined based on Figma specs
@@ -63,6 +85,10 @@ export default {
         'reading-progress': 'reading-progress 0.3s ease-out',
         'sunrise-shift': 'sunrise-shift 1800s linear', // 30 min cycle
         'sunset-shift': 'sunset-shift 1800s linear',
+        // Phase 3A - Quick wins
+        'text-glow': 'text-glow 6s ease-in-out infinite',
+        'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
+        'border-reveal': 'border-reveal 0.4s ease forwards',
       },
       /**
        * Transition defaults for ephemeral effects
