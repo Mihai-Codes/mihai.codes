@@ -18,7 +18,7 @@ export default component$(() => {
 
       <header class="mb-16">
         <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tighter">
-          <span class="ephemeral-name animate-gradient-shift animate-text-glow">
+          <span class="ephemeral-name">
             {profile.name}
           </span>
         </h1>
