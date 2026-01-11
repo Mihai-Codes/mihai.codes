@@ -60,35 +60,19 @@ h1, h2, h3, h4, h5, h6 {
 /* Keyframes must be defined here (not just in tailwind.config.js) because
    Tailwind only bundles keyframes when their animate-* utility class is used in HTML.
    Since we use custom CSS classes, we define keyframes directly. */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes text-glow {
+@keyframes glow-pulse {
   0%, 100% { 
-    filter: drop-shadow(0 0 0 transparent);
-    opacity: 1;
+    color: var(--foreground);
+    text-shadow: none;
   }
   50% { 
-    filter: drop-shadow(0 0 12px var(--accent));
-    opacity: 0.95;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.5);
   }
 }
 
 .ephemeral-name {
-  background: linear-gradient(
-    135deg,
-    var(--foreground) 0%,
-    var(--accent) 50%,
-    var(--foreground) 100%
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 8s ease-in-out infinite, text-glow 6s ease-in-out infinite;
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
 @keyframes gradient-sweep {
