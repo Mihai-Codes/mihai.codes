@@ -91,25 +91,38 @@ h1, h2, h3, h4, h5, h6 {
   animation: gradient-shift 8s ease-in-out infinite, text-glow 6s ease-in-out infinite;
 }
 
+@keyframes gradient-sweep {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 .card-border-reveal {
   position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-out;
 }
 
 .card-border-reveal::before {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
+  z-index: 10;
+}
+
+.card-border-reveal:hover {
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3), 0 0 40px rgba(var(--accent-rgb), 0.15);
 }
 
 .card-border-reveal:hover::before {
-  transform: scaleX(1);
+  animation: gradient-sweep 2.5s ease-in-out infinite;
 }
 
 /* Smooth theme transition */
