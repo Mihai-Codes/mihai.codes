@@ -7,6 +7,11 @@ Allow: /
 # Sitemap location
 Sitemap: https://mihai.codes/sitemap.xml
 
+# LLM/AI context files (llms.txt standard)
+# https://llmstxt.org
+# llms.txt: https://mihai.codes/llms.txt
+# llms-full.txt: https://mihai.codes/llms-full.txt
+
 # Block common bot spam paths (these don't exist but prevent log noise)
 Disallow: /wp-admin/
 Disallow: /wp-content/

@@ -1,0 +1,81 @@
+# mihai.codes
+
+> Personal portfolio and blog of Mihai Chindris - Aspiring Product Manager, Software Engineering student at Quantic, and open-source contributor. Built with Qwik, Tailwind CSS, and Cloudflare Pages.
+
+## About Mihai Chindris
+
+Mihai is a software professional based in Maramures, Romania with 3+ years at Siemens spanning Application Support, Azure Development, and cloud operations. Currently pursuing an M.S. in Software Engineering at Quantic School of Business & Technology with focus on AI, machine learning, and cloud architectures.
+
+### Contact
+- Email: hello@mihai.codes
+- LinkedIn: https://www.linkedin.com/in/mihai-chindris
+- GitHub: https://github.com/chindris-mihai-alexandru
+
+## Blog Posts
+
+Technical articles on engineering, cloud computing, and building in public.
+
+- [AWS Bedrock + Anthropic Claude: The Complete Troubleshooting Guide](/blog/aws-bedrock-anthropic-troubleshooting): Three undocumented gotchas that will save you hours of debugging when setting up Claude models on AWS Bedrock. Tags: aws, bedrock, anthropic, cloud
+- [Building AI Agents with OpenCode and Free LLMs](/blog/building-ai-agents-with-opencode): How to set up an autonomous AI coding agent using OpenCode, OpenRouter, and completely free language models. Tags: ai, opencode, agents, cloud
+- [Why I Chose Qwik Over Next.js](/blog/why-qwik): A deep dive into resumability, hydration, and why Qwik's approach to JavaScript is revolutionary. Tags: qwik, javascript, frameworks
+- [Hello, World!](/blog/hello-world): Welcome to my corner of the internet. Here's what I'm building and why. Tags: personal, meta
+
+## Projects
+
+- [EasyParkPlus](https://github.com/heshamsakr/EasyParkPlus-Refactor): Enterprise Parking & EV Charging Architecture - Domain-Driven Design and microservices for scalable multi-facility parking systems
+- [Cafe Fausse](https://github.com/chindris-mihai-alexandru/cafe-fausse): Full-Stack Restaurant Web Application - Intelligent reservation engine with dynamic table allotment
+- [Lily's Florist Shop](https://www.figma.com/design/cDdidMI5ehr2Lgp7htOpar/Lily-s-Florist-Shop-Mockup-Wireframes): Design & Requirements - User stories, journey mapping, and Figma wireframes
+
+## Technical Skills
+
+Product Management, Software Engineering, Azure, API Integration, Cloud Technologies, Observability, User Experience Design, Agile Methodologies, Open Source Contribution
+
+## Certifications
+
+- AWS Academy Cloud Foundations
+- ITIL Foundation 4 First Look
+- Azure Essential Training for Developers
+- Google Digital Marketing Fundamentals
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | Qwik + Qwik City |
+| Styling | Tailwind CSS |
+| CMS | Sanity (headless) |
+| Hosting | Cloudflare Pages (edge) |
+| Language | TypeScript |
+
+### Architecture
+
+```
+Sanity Studio ──> Sanity API <── mihai.codes (Qwik + CF)
+```
+
+## Repository Structure
+
+```
+src/
+├── components/     # Reusable UI components (theme-toggle, social-links, etc.)
+├── context/        # Qwik context providers (theme)
+├── data/           # Static data (profile.ts)
+├── lib/            # Utilities (Sanity client)
+├── utils/          # Helpers (sanitize, etc.)
+└── routes/         # File-based routing
+    ├── index.tsx   # Home page
+    ├── blog/       # Blog routes (fetches from Sanity)
+    ├── sitemap.xml/# Dynamic sitemap
+    └── rss.xml/    # RSS feed
+```
+
+## Related
+
+- Sanity Studio: https://github.com/chindris-mihai-alexandru/mihai-codes-studio
+- Live Site: https://mihai.codes
+- Sanity Project ID: 76ahey7l
+- GitHub: https://github.com/chindris-mihai-alexandru/mihai.codes
+
+## License
+
+MIT - Built by Mihai Chindris
