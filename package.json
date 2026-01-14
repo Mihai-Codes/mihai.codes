@@ -17,6 +17,7 @@
     "preview": "qwik build preview && vite preview --open",
     "serve": "wrangler pages dev dist",
     "start": "vite --open --mode ssr",
+    "sync-memory": "tsx src/lib/sync-memory.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -47,6 +48,7 @@
   },
   "private": true,
   "dependencies": {
-    "@sanity/client": "^7.14.0"
+    "@sanity/client": "^7.14.0",
+    "@vectorize-io/hindsight-client": "^0.3.0"
   }
 }

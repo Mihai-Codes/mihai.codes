@@ -16,6 +16,7 @@ Personal portfolio and blog built with modern web technologies.
 - **Instant Loading** - Qwik's resumability means near-zero JavaScript on initial load
 - **Dark/Light Theme** - System-aware with manual toggle, persisted to localStorage
 - **Blog with CMS** - Content managed via Sanity Studio with Markdown support
+- **Agent Memory** - Hindsight integration for AI-powered memory and insights
 - **Dynamic Sitemap** - Auto-generated from Sanity content for SEO
 - **Edge Deployed** - Cloudflare Pages for global performance
 
@@ -26,6 +27,7 @@ Personal portfolio and blog built with modern web technologies.
 | Framework | [Qwik](https://qwik.dev) + [Qwik City](https://qwik.dev/docs/qwikcity/) |
 | Styling | [Tailwind CSS](https://tailwindcss.com) |
 | CMS | [Sanity](https://sanity.io) |
+| Agent Memory | [Hindsight](https://github.com/vectorize-io/hindsight) |
 | Hosting | [Cloudflare Pages](https://pages.cloudflare.com) |
 | Language | [TypeScript](https://typescriptlang.org) |
 
