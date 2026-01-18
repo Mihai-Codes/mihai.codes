@@ -2,8 +2,8 @@
 
 Personal portfolio and blog built with modern web technologies.
 
-[![CI](https://github.com/chindris-mihai-alexandru/mihai.codes/actions/workflows/ci.yml/badge.svg)](https://github.com/chindris-mihai-alexandru/mihai.codes/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/chindris-mihai-alexandru/mihai.codes/graph/badge.svg)](https://codecov.io/gh/chindris-mihai-alexandru/mihai.codes)
+[![CI](https://github.com/Mihai-Codes/mihai.codes/actions/workflows/ci.yml/badge.svg)](https://github.com/Mihai-Codes/mihai.codes/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/Mihai-Codes/mihai.codes/graph/badge.svg)](https://codecov.io/gh/Mihai-Codes/mihai.codes)
 
 [![Qwik](https://img.shields.io/badge/Qwik-000000?style=flat-square&logo=qwik&logoColor=white)](https://qwik.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -75,7 +75,7 @@ src/
 
 ## Related Repositories
 
-- **Sanity Studio**: [mihai-codes-studio](https://github.com/chindris-mihai-alexandru/mihai-codes-studio)
+- **Sanity Studio**: [mihai-codes-studio](https://github.com/Mihai-Codes/mihai-codes-studio)
 
 ## Development Workflow
 
@@ -90,4 +90,4 @@ MIT
 
 ---
 
-Built by [Mihai Chindris](https://github.com/chindris-mihai-alexandru)
+Built by [Mihai Chindris](https://github.com/Mihai-Codes)
