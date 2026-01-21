@@ -11,9 +11,22 @@ export const hindsight = new HindsightClient({ baseUrl: HINDSIGHT_URL });
 
 /**
  * Retain information in agent memory
+ * Uses async mode for faster response - processing happens in background
  */
 export async function retainMemory(content: string, context?: string) {
-  return await hindsight.retain(BANK_ID, content, { context });
+  return await hindsight.retain(BANK_ID, content, { context, async: true });
+}
+
+/**
+ * Retain multiple memories in a single batch
+ * Uses async mode for faster response - processing happens in background
+ */
+export async function retainMemoryBatch(items: Array<{ content: string; context?: string }>) {
+  return await hindsight.retainBatch(
+    BANK_ID,
+    items.map((item) => ({ content: item.content, context: item.context })),
+    { async: true }
+  );
 }
 
 /**
