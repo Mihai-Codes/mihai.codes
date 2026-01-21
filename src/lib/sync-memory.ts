@@ -53,4 +53,4 @@ export async function syncMemoryBank() {
 }
 
 // Run when executed directly
-syncMemoryBank();
+void syncMemoryBank();
