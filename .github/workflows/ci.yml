@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  deployments: write
 
 jobs:
   build-and-test:
@@ -38,6 +39,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
@@ -46,3 +54,26 @@ jobs:
           flags: unittests
           fail_ci_if_error: false
           verbose: true
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=mihai-codes --branch=main --commit-dirty=true
