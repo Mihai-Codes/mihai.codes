@@ -90,8 +90,13 @@ export default component$(() => {
           <a
             href="https://github.com/chindris-mihai-alexandru/mihai.codes"
             target="_blank"
-            class="text-accent hover:underline"
+            class="text-accent hover:underline inline-flex items-center gap-1"
           >
+            <img 
+              src="/images/github/GitHub_Logo.png" 
+              alt="GitHub" 
+              class="h-4 w-auto inline-block"
+            />
             Source on GitHub
           </a>
         </p>
