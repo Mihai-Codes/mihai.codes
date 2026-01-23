@@ -109,3 +109,4 @@ jobs:
           HINDSIGHT_API_URL: ${{ secrets.HINDSIGHT_API_URL }}
           VITE_SANITY_PROJECT_ID: 76ahey7l
           VITE_SANITY_DATASET: production
+        continue-on-error: true

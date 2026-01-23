@@ -85,6 +85,7 @@ export default component$(() => {
 
       <footer class="mt-24 pt-8 border-t border-border text-text-secondary text-sm font-mono text-center">
         <p class="text-text-primary font-semibold">mihai.codes</p>
+        <p class="mt-2">&copy; {new Date().getFullYear()} Mihai Chindriș</p>
         <p class="mt-2">
           Built with Qwik · Deployed on Cloudflare Pages ·{' '}
           <a
@@ -105,7 +106,6 @@ export default component$(() => {
           {' · '}
           <a href="/rss.xml" class="text-accent hover:underline">RSS</a>
         </p>
-        <p class="mt-2">&copy; {new Date().getFullYear()} Mihai Chindriș</p>
       </footer>
     </div>
   );
