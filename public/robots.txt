@@ -18,6 +18,3 @@ Disallow: /wp-content/
 Disallow: /wp-includes/
 Disallow: /.env
 Disallow: /config/
-
-# Hide llms.txt from search engines
-Disallow: /llms.txt

@@ -185,16 +185,21 @@ export default component$(() => {
           >
             Source on GitHub
           </a>
-        </p>
-        <p class="mt-2">
-          <img 
-            src="/images/github/GitHub_Logo.png" 
-            alt="GitHub" 
-            class="h-4 w-auto inline-block"
-          />
-        </p>
-        <p class="mt-2">
+          {' · '}
           <a href="/rss.xml" class="text-accent hover:underline">RSS</a>
+        </p>
+        <p class="mt-2">
+          <a 
+            href="https://github.com/chindris-mihai-alexandru/mihai.codes"
+            target="_blank"
+            class="inline-block"
+          >
+            <img 
+              src="/images/github/GitHub_Logo.png" 
+              alt="GitHub" 
+              class="h-4 w-auto"
+            />
+          </a>
         </p>
       </footer>
     </div>
