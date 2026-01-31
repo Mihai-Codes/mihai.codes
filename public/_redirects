@@ -1,3 +1,8 @@
 # Cloudflare Pages redirects
 # Note: /rss.xml and /sitemap.xml are SSR routes that work with GET requests
 # HEAD requests may return 404 due to Qwik's endpoint handling (browsers use GET)
+
+# Social links shortcuts
+/github https://github.com/mchindri 301
+/linkedin https://linkedin.com/in/mchindri 301
+/mastodon https://mastodon.social/@mihai_chindris 301
