@@ -8,6 +8,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build-and-push:
@@ -31,10 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          # Publish to BOTH org and personal account
-          images: |
-            ${{ env.REGISTRY }}/${{ github.repository }}
-            ${{ env.REGISTRY }}/chindris-mihai-alexandru/mihai.codes
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
