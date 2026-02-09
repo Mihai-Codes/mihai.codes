@@ -82,6 +82,13 @@ export const profile = {
   ],
   projects: [
     {
+      name: "codebeep",
+      role: "AI Coding Agent via Matrix",
+      date: "Feb 2026",
+      description: "Built a self-hosted AI coding bot that lets me assign tasks to OpenCode directly from my phone through Beeper/Matrix. Features automatic room creation, error resilience, and command routing. Now I can kick off builds and plans without opening my laptop - just chat from anywhere.",
+      url: "https://github.com/Mihai-Codes/CodeBeep"
+    },
+    {
       name: "opencode-puter-auth",
       role: "OpenCode AI Provider Plugin",
       date: "Jan 2026",
