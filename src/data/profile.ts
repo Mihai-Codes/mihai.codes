@@ -92,7 +92,7 @@ export const profile = {
       name: "codebeep",
       role: "AI Coding Agent via Matrix",
       date: "Feb 2026",
-      description: "Built a self-hosted AI coding bot that lets me assign tasks to OpenCode directly from my phone through Beeper/Matrix. Features automatic room creation, error resilience, and command routing. Now I can kick off builds and plans without opening my laptop - just chat from anywhere.",
+      description: "Ongoing project building a self-hosted AI coding bot that lets me assign tasks to OpenCode directly from my phone through Beeper/Matrix. Features automatic room creation, error resilience, and command routing. Now I can kick off builds and plans without opening my laptop - just chat from anywhere.",
       url: "https://github.com/Mihai-Codes/CodeBeep"
     },
     {
