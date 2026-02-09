@@ -82,6 +82,13 @@ export const profile = {
   ],
   projects: [
     {
+      name: "malware-detection-ml",
+      role: "ML-Powered Malware Detection",
+      date: "Feb 2026",
+      description: "Building ML classifiers to detect malware from executable files with my team at Quantic. Implementing Logistic Regression, Random Forest, PyTorch MLP, and XGBoost models with Flask web app for predictions. Working on CI/CD pipeline with automated testing for deployment.",
+      url: "https://github.com/chindris-mihai-alexandru/malware-detection-ml"
+    },
+    {
       name: "codebeep",
       role: "AI Coding Agent via Matrix",
       date: "Feb 2026",
