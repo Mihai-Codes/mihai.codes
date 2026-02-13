@@ -26,3 +26,5 @@ pattern = "public/**"
 
 [[exclude_patterns]]
 pattern = "adapters/**"
+
+# Trigger DeepSource re-analysis
