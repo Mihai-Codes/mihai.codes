@@ -1,0 +1,28 @@
+version = 1
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  plugins = ["typescript"]
+  environment = ["nodejs", "browser"]
+  dialect = "typescript"
+
+[[exclude_patterns]]
+pattern = "node_modules/**"
+
+[[exclude_patterns]]
+pattern = "dist/**"
+
+[[exclude_patterns]]
+pattern = "coverage/**"
+
+[[exclude_patterns]]
+pattern = ".wrangler/**"
+
+[[exclude_patterns]]
+pattern = "public/**"
+
+[[exclude_patterns]]
+pattern = "adapters/**"
