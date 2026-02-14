@@ -1,0 +1,17 @@
+version = 1
+
+test_patterns = [
+  "src/**/*.test.ts",
+  "src/**/*.test.tsx",
+]
+
+exclude_patterns = [
+  "dist/**",
+  "server/**",
+  ".wrangler/**",
+  "node_modules/**",
+]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
