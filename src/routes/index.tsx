@@ -208,6 +208,7 @@ export default component$(() => {
             links={[
               { name: 'GitHub', url: profile.socials.github, icon: 'github' },
               { name: 'LinkedIn', url: profile.socials.linkedin, icon: 'linkedin' },
+              { name: 'Bluesky', url: profile.socials.bluesky, icon: 'bluesky' },
               { name: 'XING', url: profile.socials.xing, icon: 'xing' },
               { name: 'Email', url: `mailto:${profile.socials.email}`, icon: 'email' },
             ]}

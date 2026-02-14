@@ -7,6 +7,7 @@ export const profile = {
   socials: {
     linkedin: "https://www.linkedin.com/in/mihai-chindris",
     github: "https://github.com/chindris-mihai-alexandru",
+    bluesky: "https://bsky.app/profile/mihaichindris.bsky.social",
     xing: "https://www.xing.com/profile/Mihai_Chindris2",
     email: "hello@mihai.codes",
     email_alt: "chindris.mihai.alexandru@gmail.com"
