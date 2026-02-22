@@ -83,6 +83,13 @@ export const profile = {
   ],
   projects: [
     {
+      name: "lora-workflow-template",
+      role: "SDXL LoRA Workflow Template",
+      date: "Feb 2026",
+      description: "Code-only workflow template for training and evaluating personal SDXL LoRAs on free Kaggle GPU. Includes checkpoint continuation, automated evaluation, and LinkedIn-style gallery generation while excluding private datasets and outputs.",
+      url: "https://github.com/Mihai-Codes/lora-workflow-template"
+    },
+    {
       name: "malware-detection-ml",
       role: "ML-Powered Malware Detection",
       date: "Feb 2026",
