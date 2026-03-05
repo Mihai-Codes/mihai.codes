@@ -32,6 +32,7 @@ _private/
 # IDE
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
 
