@@ -83,6 +83,13 @@ export const profile = {
   ],
   projects: [
     {
+      name: "OpenBrain",
+      role: "Portable AI Memory Layer",
+      date: "Mar 2026",
+      description: "Builds an open memory system that connects multiple AI assistants to the same personal context using PostgreSQL and vector embeddings over MCP, so work history, goals, and writing preferences move across tools without re-explaining from scratch.",
+      url: "https://github.com/Mihai-Codes/OpenBrain"
+    },
+    {
       name: "malware-detection-ml",
       role: "ML-Powered Malware Detection",
       date: "Feb 2026",
