@@ -93,42 +93,49 @@ export const profile = {
       name: "malware-detection-ml",
       role: "ML-Powered Malware Detection",
       date: "Feb 2026",
-      description: "Building ML classifiers to detect malware from executable files with my team at Quantic. Implementing Logistic Regression, Random Forest, PyTorch MLP, and XGBoost models with Flask web app for predictions. Working on CI/CD pipeline with automated testing for deployment.",
+      description: "Built and deployed an ML-based static malware detection platform for PE files with multi-model training, Flask inference for single and batch predictions, and CI/CD-backed delivery hardening.",
       url: "https://github.com/chindris-mihai-alexandru/malware-detection-ml"
+    },
+    {
+      name: "lora-workflow-template",
+      role: "SDXL LoRA Workflow Template",
+      date: "Feb 2026",
+      description: "Created a code-first SDXL LoRA workflow template for free Kaggle GPUs with checkpoint continuation, automated evaluation, and portfolio-ready gallery generation that excluded private assets.",
+      url: "https://github.com/chindris-mihai-alexandru/lora-workflow-template"
     },
     {
       name: "codebeep",
       role: "AI Coding Agent via Matrix",
       date: "Feb 2026",
-      description: "Ongoing project building a self-hosted AI coding bot that lets me assign tasks to OpenCode directly from my phone through Beeper/Matrix. Features automatic room creation, error resilience, and command routing. Inspired by the OpenClaw project, this tool brings personal AI assistance to my mobile workflow.",
+      description: "Built a self-hosted AI coding assistant over Beeper/Matrix that routed OpenCode tasks from mobile with automatic room creation, resilient command routing, and fault-tolerant error handling.",
       url: "https://github.com/Mihai-Codes/CodeBeep"
     },
     {
       name: "opencode-puter-auth",
       role: "OpenCode AI Provider Plugin",
       date: "Jan 2026",
-      description: "OAuth plugin enabling OpenCode to access 500+ AI models via Puter.com, including Claude Opus 4.5, GPT-5, and Gemini. Inspired by NoeFabris's popular opencode-antigravity-auth plugin. Features automatic model fallback, account rotation, and streaming support.",
+      description: "Developed an OAuth provider plugin for OpenCode that unlocked access to 500+ AI models through Puter with automatic fallback, account rotation, and streaming support.",
       url: "https://github.com/Mihai-Codes/opencode-puter-auth"
     },
     {
       name: "EasyParkPlus",
       role: "Enterprise Parking & EV Charging Architecture",
       date: "Oct 2025",
-      description: "Enterprise software development project converting an existing parking prototype into a scalable multi-facility system with EV charging. Implemented Domain-Driven Design and microservices.",
+      description: "Designed a scalable multi-facility parking and EV charging architecture by evolving a prototype into an enterprise-ready platform using Domain-Driven Design and microservices.",
       url: "https://github.com/heshamsakr/EasyParkPlus-Refactor"
     },
     {
       name: "Café Fausse",
       role: "Full-Stack Restaurant Web Application",
       date: "Sep 2025",
-      description: "Full-stack fine dining restaurant web app. Intelligent reservation engine with dynamic table allotment.",
+      description: "Developed a full-stack fine dining web application with an intelligent reservation flow and dynamic table allocation.",
       url: "https://github.com/chindris-mihai-alexandru/cafe-fausse"
     },
     {
       name: "Lily's Florist Shop",
       role: "Design & Requirements",
       date: "Jul 2025",
-      description: "Developed user stories, mapped user journeys, and translated customer needs into requirements. Created Figma wireframes.",
+      description: "Defined user stories, mapped user journeys, translated customer needs into product requirements, and delivered supporting Figma wireframes.",
       url: "https://www.figma.com/design/cDdidMI5ehr2Lgp7htOpar/Lily-s-Florist-Shop-Mockup-Wireframes?node-id=0-1&p=f"
     }
   ]
