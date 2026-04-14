@@ -4,14 +4,19 @@ import { profile } from '../data/profile';
 import { CredlyBadge, fetchCredlyBadge, type CredlyBadgeData } from '../components/credly-badge/credly-badge';
 import { SocialLinks } from '../components/social-links/social-links';
 
+const credlyBadgeIds = [
+  '221c7861-b767-4de7-8c35-cdbed40cf16b',
+  '87fb16e1-7370-46e2-9f5c-c8f5320fdc23',
+];
+
 // Fetch Credly badge data at build time (SSG) or request time (SSR)
-export const useCredlyBadge = routeLoader$<CredlyBadgeData | null>(async () => {
-  // AWS Academy Graduate - Cloud Foundations badge
-  return await fetchCredlyBadge('221c7861-b767-4de7-8c35-cdbed40cf16b');
+export const useCredlyBadges = routeLoader$<CredlyBadgeData[]>(async () => {
+  const badges = await Promise.all(credlyBadgeIds.map((badgeId) => fetchCredlyBadge(badgeId)));
+  return badges.filter((badge): badge is CredlyBadgeData => badge !== null);
 });
 
 export default component$(() => {
-  const credlyBadge = useCredlyBadge();
+  const credlyBadges = useCredlyBadges();
   return (
     <div class="min-h-screen p-8 md:p-16 max-w-4xl mx-auto">
       {/* Theme toggle is now rendered in root.tsx outside of Qwik's router */}
@@ -177,8 +182,9 @@ export default component$(() => {
         <section>
           <h2 class="text-2xl font-bold mb-6 border-b border-border pb-2">Credentials</h2>
           <div class="flex items-center gap-3 flex-wrap">
-            <CredlyBadge badge={credlyBadge.value} />
-            {/* Add more badges here as you earn them */}
+            {credlyBadges.value.map((badge) => (
+              <CredlyBadge key={badge.id} badge={badge} />
+            ))}
           </div>
           <p class="text-sm text-text-secondary mt-4 font-mono">
             View all credentials on{' '}
