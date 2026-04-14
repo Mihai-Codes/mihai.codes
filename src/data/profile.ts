@@ -104,7 +104,7 @@ export const profile = {
       url: "https://github.com/chindris-mihai-alexandru/lora-workflow-template"
     },
     {
-      name: "codebeep",
+      name: "BeeperClaw",
       role: "AI Coding Agent via Matrix",
       date: "Feb 2026",
       description: "Built a self-hosted AI coding assistant over Beeper/Matrix that routed OpenCode tasks from mobile with automatic room creation, resilient command routing, and fault-tolerant error handling.",
