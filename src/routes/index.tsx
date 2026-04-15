@@ -10,6 +10,7 @@ const credlyBadgeIds = [
   '87fb16e1-7370-46e2-9f5c-c8f5320fdc23',
   '720caef7-fa18-4dd4-bee8-579cf666de2a',
   'b05f1a54-43e2-442d-97ff-ff993edcff29',
+  'dbc242a3-33e7-4cd5-9e60-0e1d75795168',
 ];
 
 // Fetch Credly badge data at build time (SSG) or request time (SSR)
